@@ -108,13 +108,11 @@ public class PlayGame {
                 bases[2].addR();
                 bases[2] = null;
             }
-/*2nd*/
-            if (bases[1] != null) {
+/*2nd*/     if (bases[1] != null) {
                 int j = 0;
                 if (bases[1].speed == inField.getDefense())
                     j = r.nextInt(2);
-    /*run*/
-                if (bases[1].speed > inField.getDefense() || j == 1) {
+    /*run*/     if (bases[1].speed > inField.getDefense() || j == 1) {
                     event = event + ", " + bases[1].name + " scores";
                     if (bases[1].getEarned())
                         pitcher.addER();
@@ -124,20 +122,17 @@ public class PlayGame {
                     atBat.score++;
                     bases[1] = null;
                 }
-    /*stay*/
-                else if (bases[1].speed < inField.getDefense()) {
+    /*stay*/    else if (bases[1].speed < inField.getDefense()) {
                     event = event + ", " + bases[1].name + " to third";
                     bases[2] = bases[1];
                     bases[1] = null;
                 }
-    /*out*/
-                else {
+    /*out*/     else {
                     event = event + ", " + bases[1].name + " out at the plate";
                     outs++;
                 }
             }
-/*1st*/
-            if (bases[0] != null) {
+/*1st*/     if (bases[0] != null) {
                 event = event + ", " + bases[0].name + " to second";
                 bases[1] = bases[0];
             }
@@ -146,7 +141,8 @@ public class PlayGame {
             p.addAB();
             pitcher.addAB();
             pitcher.addH();
-        } else {
+        }
+        else {
             event = p.name + " singles, " + bases[2].name + " scores";
             if (bases[0] != null) {
                 event = event + ", " + bases[1].name + " to third, " + bases[0].name + " to second";
@@ -171,8 +167,7 @@ public class PlayGame {
 
         if (!botlast) {
             event = p.name + " doubles";
-/*3rd*/
-            if (bases[2] != null) {
+/*3rd*/     if (bases[2] != null) {
                 event = event + ", " + bases[2].name + " scores";
                 atBat.score++;
                 if (bases[2].getEarned())
@@ -182,8 +177,7 @@ public class PlayGame {
                 bases[2].addR();
                 bases[2] = null;
             }
-/*2nd*/
-            if (bases[1] != null) {
+/*2nd*/     if (bases[1] != null) {
                 event = event + ", " + bases[1].name + " scores";
                 atBat.score++;
                 if (bases[1].getEarned())
@@ -193,13 +187,11 @@ public class PlayGame {
                 bases[1].addR();
                 bases[1] = null;
             }
-/*1st*/
-            if (bases[0] != null) {
+/*1st*/     if (bases[0] != null) {
                 int j = 0;
                 if (bases[0].speed == inField.getDefense())
                     j = r.nextInt(2);
-    /*run*/
-                if (bases[0].speed > inField.getDefense() || j == 1) {
+    /*run*/     if (bases[0].speed > inField.getDefense() || j == 1) {
                     event = event + ", " + bases[0].name + " scores";
                     atBat.score++;
                     if (bases[0].getEarned())
@@ -209,14 +201,12 @@ public class PlayGame {
                     bases[0].addR();
                     bases[0] = null;
                 }
-    /*stay*/
-                else if (bases[0].speed < inField.getDefense()) {
+    /*stay*/    else if (bases[0].speed < inField.getDefense()) {
                     event = event + ", " + bases[0].name + " to third";
                     bases[2] = bases[0];
                     bases[0] = null;
                 }
-    /*out*/
-                else {
+    /*out*/     else {
                     event = event + ", " + bases[0].name + " out at the plate";
                     outs++;
                     bases[0] = null;
@@ -228,7 +218,8 @@ public class PlayGame {
             p.add2B();
             pitcher.addAB();
             pitcher.addH();
-        } else {
+        }
+        else {
             if (bases[2] != null && atBat.score == inField.score) {
                 event = p.name + " singles, " + bases[2].name + " scores";
                 if (bases[1] != null && bases[0] != null)
@@ -244,7 +235,8 @@ public class PlayGame {
                 bases[2] = bases[1];
                 bases[1] = bases[0];
                 bases[0] = p;
-            } else if (bases[1] != null && atBat.score == inField.score) {
+            }
+            else if (bases[1] != null && atBat.score == inField.score) {
                 event = p.name + " doubles, " + bases[1].name + " scores";
                 if (bases[0] != null)
                     event = event + ", " + bases[0].name + " to third";
@@ -257,7 +249,8 @@ public class PlayGame {
                 bases[1].addR();
                 bases[2] = bases[0];
                 bases[1] = p;
-            } else if (bases[0] != null && atBat.score == inField.score) {
+            }
+            else if (bases[0] != null && atBat.score == inField.score) {
                 event = p.name + " doubles";
                 int j = 0;
                 if (bases[0].speed == inField.getDefense())
@@ -274,22 +267,21 @@ public class PlayGame {
                     bases[0] = null;
                     bases[1] = p;
                 }
-    /*stay*/
-                else if (bases[0].speed < inField.getDefense()) {
+    /*stay*/    else if (bases[0].speed < inField.getDefense()) {
                     event = event + ", " + bases[0].name + " to third";
                     bases[2] = bases[0];
                     bases[0] = null;
                     bases[1] = p;
                 }
-    /*out*/
-                else {
+    /*out*/     else {
                     event = event + ", " + bases[0].name + " out at the plate";
                     outs++;
                     bases[0] = null;
                     bases[1] = p;
                 }
                 p.add2B();
-            } else {
+            }
+            else {
                 event = p.name + " doubles";
                 p.add2B();
                 if (bases[2] != null) {
@@ -317,12 +309,12 @@ public class PlayGame {
                         event = event + ", " + bases[0].name + " to third";
                         bases[2] = bases[0];
                         bases[0] = null;
-                    } else {
+                    }
+                    else {
                         int j = 0;
                         if (bases[0].speed == inField.getDefense())
                             j = r.nextInt(2);
-    /*run*/
-                        if (bases[0].speed > inField.getDefense() || j == 1) {
+    /*run*/             if (bases[0].speed > inField.getDefense() || j == 1) {
                             event = event + ", " + bases[0].name + " scores";
                             atBat.score++;
                             if (bases[0].getEarned())
@@ -332,19 +324,16 @@ public class PlayGame {
                             bases[0].addR();
                             bases[0] = null;
                         }
-    /*stay*/
-                        else if (bases[0].speed < inField.getDefense()) {
+    /*stay*/            else if (bases[0].speed < inField.getDefense()) {
                             event = event + ", " + bases[0].name + " to third";
                             bases[2] = bases[0];
                             bases[0] = null;
                         }
-    /*out*/
-                        else {
+    /*out*/             else {
                             event = event + ", " + bases[0].name + " out at the plate";
                             outs++;
                             bases[0] = null;
                         }
-
                     }
                 }
                 bases[1] = p;
@@ -362,8 +351,7 @@ public class PlayGame {
         String event = new String();
         if (!botlast) {
             event = p.name + " triples";
-    /*3rd*/
-            if (bases[2] != null) {
+    /*3rd*/ if (bases[2] != null) {
                 event = event + ", " + bases[2].name + " scores";
                 atBat.score++;
                 if (bases[2].getEarned())
@@ -373,8 +361,7 @@ public class PlayGame {
                 bases[2].addR();
                 bases[2] = null;
             }
-    /*2nd*/
-            if (bases[1] != null) {
+    /*2nd*/ if (bases[1] != null) {
                 event = event + ", " + bases[1].name + " scores";
                 atBat.score++;
                 if (bases[1].getEarned())
@@ -384,8 +371,7 @@ public class PlayGame {
                 bases[1].addR();
                 bases[1] = null;
             }
-    /*1st*/
-            if (bases[0] != null) {
+    /*1st*/ if (bases[0] != null) {
                 event = event + ", " + bases[0].name + " scores";
                 atBat.score++;
                 if (bases[0].getEarned())
@@ -418,7 +404,8 @@ public class PlayGame {
                 bases[2] = bases[1];
                 bases[1] = bases[0];
                 bases[0] = p;
-            } else if (bases[1] != null && atBat.score == inField.score) {
+            }
+            else if (bases[1] != null && atBat.score == inField.score) {
                 event = p.name + " doubles , " + bases[1].name + " scores";
                 if (bases[0] != null)
                     event = event + ", " + bases[0].name + " to third";
@@ -474,8 +461,7 @@ public class PlayGame {
                         bases[2].addR();
                         bases[2] = null;
                     }
-    /*2nd*/
-                    if (bases[1] != null) {
+    /*2nd*/         if (bases[1] != null) {
                         event = event + ", " + bases[1] + " scores";
                         atBat.score++;
                         if (bases[1].getEarned())
@@ -485,8 +471,7 @@ public class PlayGame {
                         bases[1].addR();
                         bases[1] = null;
                     }
-    /*1st*/
-                    if (bases[0] != null) {
+    /*1st*/         if (bases[0] != null) {
                         event = event + ", " + bases[0] + " scores";
                         atBat.score++;
                         if (bases[0].getEarned())
@@ -512,7 +497,7 @@ public class PlayGame {
     public Player[] homeRun(Player p, Team atBat, Pitcher pitcher, Player[] bases) {
         String event = new String();
         event = p.name + " homers";
-    /*3rd*/
+        /*3rd*/
         if (bases[2] != null) {
             event = event + ", " + bases[2].name + " scores";
             atBat.score++;
@@ -523,7 +508,7 @@ public class PlayGame {
             bases[2].addR();
             bases[2] = null;
         }
-    /*2nd*/
+        /*2nd*/
         if (bases[1] != null) {
             event = event + ", " + bases[1].name + " scores";
             atBat.score++;
@@ -534,7 +519,7 @@ public class PlayGame {
             bases[1].addR();
             bases[1] = null;
         }
-    /*1st*/
+        /*1st*/
         if (bases[0] != null) {
             event = event + ", " + bases[0].name + " scores";
             atBat.score++;
@@ -585,11 +570,13 @@ public class PlayGame {
             bases[2].addR();
             bases[2] = bases[1];
             bases[1] = bases[0];
-        } else if (bases[1] != null && bases[0] != null) {
+        }
+        else if (bases[1] != null && bases[0] != null) {
             event = event + ", " + bases[1].name + " to third, " + bases[0].name + " to second";
             bases[2] = bases[1];
             bases[1] = bases[0];
-        } else if (bases[0] != null) {
+        }
+        else if (bases[0] != null) {
             event = event + ", " + bases[0].name + " to second";
             bases[1] = bases[0];
         }
@@ -611,7 +598,8 @@ public class PlayGame {
                     bases[1] = null;
                 }
                 outs++;
-            } else if (bases[2] != null && bases[0] != null) {
+            }
+            else if (bases[2] != null && bases[0] != null) {
                 outs++;
                 if (bases[1] == null) {
                     event = p.name + " grounds out, " + bases[0].name + " moves to second";
@@ -623,7 +611,8 @@ public class PlayGame {
                     bases[1] = bases[0];
                     bases[0] = p;
                 }
-            } else if (bases[2] == null && bases[0] != null) {
+            }
+            else if (bases[2] == null && bases[0] != null) {
                 if (p.speed > inField.getDefense()) {
                     bases[0] = p;
                     bases[2] = bases[1];
@@ -637,11 +626,13 @@ public class PlayGame {
                     outs = outs + 2;
                     event = p.name + " grounds into double play";
                 }
-            } else {
+            }
+            else {
                 event = p.name + " grounds out";
                 outs++;
             }
-        } else {
+        }
+        else {
             event = p.name + " grounds out";
             outs++;
         }
@@ -659,7 +650,8 @@ public class PlayGame {
             p.addAB();
             pitcher.addAB();
             outs++;
-        } else {
+        }
+        else {
             if (bases[2] != null && bases[2].speed > inField.getDefense()) {
                 event = p.name + " hits sacrifice fly, " + bases[2].name + " scores";
                 atBat.score++;
@@ -676,14 +668,16 @@ public class PlayGame {
                     bases[2] = bases[1];
                     bases[1] = null;
                 }
-            } else if (bases[2] != null) {
+            }
+            else if (bases[2] != null) {
                 int run = r.nextInt(3); //if 0, out at plate
                 if (run == 0) {
                     event = p.name + " flies out, " + bases[2].name + " out at the plate";
                     outs = outs + 2;
                     p.addAB();
                     pitcher.addAB();
-                } else {
+                }
+                else {
                     event = p.name + " hits sacrifice fly, " + bases[2].name + " scores";
                     atBat.score++;
                     outs++;
@@ -700,14 +694,16 @@ public class PlayGame {
                         bases[1] = null;
                     }
                 }
-            } else if (bases[1] != null && bases[1].speed > inField.getDefense() + 2) {
+            }
+            else if (bases[1] != null && bases[1].speed > inField.getDefense() + 2) {
                 event = p.name + " flies out, " + bases[1].name + " moves to third";
                 outs++;
                 bases[2] = bases[1];
                 bases[1] = null;
                 p.addAB();
                 pitcher.addAB();
-            } else {
+            }
+            else {
                 event = p.name + " flies out";
                 outs++;
                 p.addAB();
@@ -742,7 +738,8 @@ public class PlayGame {
                 event = event + ", " + bases[0].name + " to second";
                 bases[1] = bases[0];
             }
-        } else {
+        }
+        else {
             if (bases[2] != null && bases[1] != null && bases[0] != null) {
                 event = event + ", " + bases[2].name + " scores, " + bases[1].name + " to third, " + bases[0].name + " to second";
                 atBat.score++;
@@ -750,11 +747,13 @@ public class PlayGame {
                 bases[2].addR();
                 bases[2] = bases[1];
                 bases[1] = bases[0];
-            } else if (bases[1] != null && bases[0] != null) {
+            }
+            else if (bases[1] != null && bases[0] != null) {
                 event = event + ", " + bases[1].name + " to third, " + bases[0].name + " to second";
                 bases[2] = bases[1];
                 bases[1] = bases[0];
-            } else if (bases[0] != null) {
+            }
+            else if (bases[0] != null) {
                 event = event + ", " + bases[0].name + " to second";
                 bases[1] = bases[0];
             }
